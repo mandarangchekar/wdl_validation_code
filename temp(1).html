@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial scale=1.0"> <title>Experiment 5</title> 
+    </head> 
+    <body> 
+        <h1>Registration Form</h1> 
+        <form name="myform">  
+            User Id: <input type="text" name="userid" id="userid"><br/>  
+            Password: <input type="password" name="password"  id="password"><br/> Name: <input type="text" name="name"  id="name"><br/> 
+            Address: <input type="text" name="address" id="address"><br/> 
+
+            <label for="country">Country:</label> 
+            <select name="country" id="country"> 
+                <option value="">(Please select a country)</option> 
+                <option value="bah">Bahrain</option> 
+                <option value="kuw">Kuwait</option> 
+                <option value="ned">Netherlands</option> 
+                <option value="in">India</option>
+                <option value="uk">United Kingdom</option> 
+            </select> 
+            <br>
+            ZIP Code: <input type="text" name="zip" id="zip"><br/>
+            Email: <input tye="text" name="email" id="email"><br/> 
+            Sex: <input type="radio" id="male" name="gender" value="male"> 
+            <label for="male">Male</label> <input type="radio" id="female" name="gender"  value="female"> 
+            <label for="female">Female</label><br> 
+            Language: <input type="checkbox" id="eng" name="eng"  value="English"> 
+            <label for="eng"> English</label> 
+            <input type="checkbox" id="neng" name="neng" value="Non  English"> 
+            <label for="neng">Non English</label><br> 
+            
+            <label for="about">About:</label><br> 
+            <textarea id="about" name="about" rows="4"  
+            cols="50"></textarea><br> <button type="button"  onclick="validateform()">Submit</button> 
+        </form>  
+        
+        <script> 
+            function validateform(){ 
+                var userid=document.getElementById("userid").value; var password=document.getElementById("password").value; var name=document.getElementById("name").value; var country=document.getElementById("country").value; var zip=document.getElementById("zip").value; var email=document.getElementById("email").value; var gender=document.getElementsByName("gender"); var lang=document.getElementById("eng").value; var al=""; 
+                var letters = /^[A-Za-z]+$/; 
+                var numbers = /^[0-9]+$/; 
+                console.log(); 
+                
+                if(userid.length < 5 || userid.length > 12){ 
+                al+="Userid is required and must be of length 5 to 12.\n"; 
+                } 
+
+                if(password.length < 7 || password.length > 12){ 
+                    al+="password is required and must be of length 7 to 12.\n"; 
+                    } 
+
+                if(!name.match(letters)){ 
+                    al+="name is required and alphabates.\n"; 
+                } 
+                
+                if(al != ""){ 
+                    alert(al); 
+                } else {
+                    alert("Form Submitted!");
+                }
+
+            } 
+        </script> 
+    </body> 
+</html> 
